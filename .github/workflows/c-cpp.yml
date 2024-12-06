@@ -73,7 +73,7 @@ jobs:
       run: cmake --build "${{env.CMAKE_BUILD_DIR}}" --config Release --target "${{ matrix.target }}" -j 6 --
 
     - name: Upload a build artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         # Artifact name
         name: slimevr-openvr-driver-${{ matrix.triplet }} # optional, default is artifact
@@ -92,4 +92,3 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: "${{env.CMAKE_BUILD_DIR}}/slimevr-openvr-driver-${{ matrix.triplet }}.zip"
-          
